@@ -1,14 +1,14 @@
-Composite Types
+## Composite Types
 
 Arrays and Structs are aggregate types; their values are concatenations of other values in memory. Arrays and Structs are fixed size. In contrast, slices and maps are dynamic data structures that grow as values are added. 
 
 
-4.1 Arrays
-""
+# 4.1 Arrays
+
 An array is a fixed-length sequence of zero or more elements of a particular type. Because of their fixed length, arrays are rarely used directly in Go. Slices, which can grow and shrink, are much more versatile, but to understand slices we must understand arrays first. 
 
 
-
+```
 var a [3]int                 // array of 3 integers 
 fmt.Println(a[0])            // print the first element
 fmt.Println(a[len(a)-1])     // print the last element, a[2]
@@ -25,10 +25,11 @@ for _,i= range a {
 	fmt.Printlf("%d %d", i, v)
 
 }
+```
 
+We can use an array literal to initialize  an array with list of values. 
 
-// We can use an array literal to initialize  an array with list of values. 
-var q [3]int = [3]int{1,2,3}
+`var q [3]int = [3]int{1,2,3}`
 
 In an array literal, if an ellipsis "..." appears in place of length, the array length is determined by the numbers of initializers. 
 q := [...]int{1 , 2, 3}

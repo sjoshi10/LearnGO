@@ -1,9 +1,9 @@
-## Composite Types
+# Composite Types
 
 Arrays and Structs are aggregate types; their values are concatenations of other values in memory. Arrays and Structs are fixed size. In contrast, slices and maps are dynamic data structures that grow as values are added. 
 
 
-# 4.1 Arrays
+## 4.1 Arrays
 
 An array is a fixed-length sequence of zero or more elements of a particular type. Because of their fixed length, arrays are rarely used directly in Go. Slices, which can grow and shrink, are much more versatile, but to understand slices we must understand arrays first. 
 
@@ -32,16 +32,16 @@ We can use an array literal to initialize  an array with list of values.
 `var q [3]int = [3]int{1,2,3}`
 
 In an array literal, if an ellipsis "..." appears in place of length, the array length is determined by the numbers of initializers. 
-q := [...]int{1 , 2, 3}
+`q := [...]int{1 , 2, 3}`
 
 
 The size of an array must be a constant expression, that is, an expression whose value can be computed as the program is being compiled. 
-
+```
 q := [3]int{1,2,3}
 q = [4]int{1,2,3,4}  // compile error: connot assign [4]int to [3]int
-
+```
 As we'll see, the literal syntax is similar for arrays, slices, maps, and structs. The specific for above is a list of values in order, but it is also possible to specify a list of index and value pairs, like this:
-
+```
 type Currency int
 
 const (
@@ -54,26 +54,26 @@ const (
 symbol :] [...]string{USD: "a", EUR: "b", GBP: "c", RMB: "d"}
 
 fmt.Println(RMB, symbol[RMB] ) // "3 d"
-
+```
 In this form, indices can appear in any order and some may be omitted, as before, unspecified values take on the zero value for the element type. For instance, 
-
+```
   r := [...]int{99: -1} // definies an array r with 100 elements, all zero except for the last, which has value -1.
-
+```
 
 If an array's element type is comparable then the array type is comparable too, so we may directly compare two arrays of that type using the == operator. 
 
 This function zeroes the contents of a [32]byte array:
 
-
+```
 func zero(ptr *[32]byte){
 	for i := range ptr {
 		ptr[i]=0
 }
-
+```
 Arrays are seldom used as function parameters or results; instead we use slices. 
 
 
-4.2 Slices
+## 4.2 Slices
 
 Slices represent variable-length sequences whose elements all have the same type. A slice type is written []T, where the elements have type T; it looks like an array type without a size. 
 
@@ -85,18 +85,18 @@ A slice has three components: a pointer, a length, and a capacity. The pointer p
 
 
 Since a slice contains a pointer to an element of an array, passing a slice to a function permits the function to modify the underlying array elements. 
-
+```
 s := int{0,1,2,3} // This implicitly creates an array variable of the right size and yields a slice that points to it. 
-
+```
 Unlike arrays, clices are not comparable, so we cannot use == to test whether two slices contain the same elements. We must do the comparison ourselves unless it's a byte type. 
 
-4.2.1 The append Function
+## 4.2.1 The append Function
 
 The built-in append function appends items to slices:
-
+```
 s := []int{1, 2, 3, 4}
 
 	fmt.Println(s)   // 1, 2, 3, 4 
 	s = append(s,5)
 	fmt.Println(s)  // 1, 2, 3, 4, 5
-
+```

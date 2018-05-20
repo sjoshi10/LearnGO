@@ -52,3 +52,20 @@ fmt.Println(*p) // "1"
 *p =2           // equivalent to x=2
 fmt.Println(x)  // "2"
 ```
+* Pointers are comparable; two pointers are equal if and only if they point to the same variable or both are nil. 
+```
+var x, y int
+fmt.Println(&x == &x, &x == &y, &x == nil) // true, false, false
+```
+
+* Function can return address of the variable
+```
+var p = f()
+
+func f() *int{
+  v := 1
+  return &v
+}
+```
+
+

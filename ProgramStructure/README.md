@@ -27,4 +27,15 @@ var b, f, s = true, 2.3, "four" // bool, float64, string
 
 `i, j := 0, 1`
  
-* But declarations with multiple initializer expressions should be used only when they help readability. 
+* But declarations with multiple initializer expressions should be used only when they help readability.
+* One subtle but important point: a short variable declaration does not necessarily declare all the variables on its left-hand side. If some of them were already declared in the same lexical block, then the short variable declaration acts like an assignment to those variables. For example:
+##### This works
+```
+in , err := os.Open(inFile)
+out, err := os.Create(outFile) 
+```
+##### Throw compilation error!
+```
+f, err := os.Open(infile)
+f, err := os.Create(outfile)
+```

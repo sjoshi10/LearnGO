@@ -39,3 +39,16 @@ out, err := os.Create(outFile)
 f, err := os.Open(infile)
 f, err := os.Create(outfile)
 ```
+
+##### 2.3.2 Pointers
+* A variable is a piece of storage containing a value. 
+* A pointer values is the address of a variable. A pointer is thus the location at which a value is stored. Not every value has an address, but every variable does. 
+* If a variable is declared `var x int`, the expression `&x`(adddress of x) yields a pointer to an integer variable, that is, a value of type *int. 
+
+```
+x := 1
+p := &x         // p, of type *int, points to x
+fmt.Println(*p) // "1"
+*p =2           // equivalent to x=2
+fmt.Println(x)  // "2"
+```

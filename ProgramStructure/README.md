@@ -10,3 +10,9 @@ func addtion(a int, b int) int {
   return (a + b)
 }
 ```
+## 2.3 Variables 
+`var name type = expression`
+Either the type or the = expression part may be omitted, but not both. 
+
+* If the type is ommited, it is determined by the initializer expression. If the expression is omitted, the initial value is the zero valuze for the type. 
+* The zero-value mechanism ensures that a variable always holds a well-defined value of its type; in Go there is no such thing as an uninitialized variable. 

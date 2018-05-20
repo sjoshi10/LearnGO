@@ -68,4 +68,18 @@ func f() *int{
 }
 ```
 
+* Function makes it possible for the function to update the variable that was indirectly passed. 
+```
+func incr(p *int) int{
+  *p++
+  return *p
+}
+
+v := 1
+incr(&v) // v =2 
+incr(&v) // v =3
+```
+
+
+
 

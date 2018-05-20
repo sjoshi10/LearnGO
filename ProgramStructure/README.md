@@ -34,7 +34,7 @@ var b, f, s = true, 2.3, "four" // bool, float64, string
 in , err := os.Open(inFile)
 out, err := os.Create(outFile) 
 ```
-##### Throw compilation error!
+##### Throws compilation error!
 ```
 f, err := os.Open(infile)
 f, err := os.Create(outfile)

@@ -87,7 +87,8 @@ p := new(int) // p = 0
 ```
 * The new function is relatively rarely used because the most common unnamed variables are of struct types, for which struct literal syntax is more flexibe. 
 
-
+##### 2.3.4 Lifetime of Variables 
+* The lifetime of a variable is the interval of time during which it exists as the program executes. The liftime of a package-level variable is the entire execution of the program. 
 
 
 

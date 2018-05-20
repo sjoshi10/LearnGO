@@ -79,7 +79,7 @@ v := 1
 incr(&v) // v =2 
 incr(&v) // v =3
 ```
-##### The new function
+##### 2.3.3 The new function
 Another way to create a variable is to use the built-in function new. The expression new(T) creates an unnamed variable of type T, initializes it to the zero value of T, and returns its address, which is a value of type *.
 ```
 p := new(int) // p = 0

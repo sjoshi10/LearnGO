@@ -16,3 +16,13 @@ Either the type or the = expression part may be omitted, but not both.
 
 * If the type is ommited, it is determined by the initializer expression. If the expression is omitted, the initial value is the zero valuze for the type. 
 * The zero-value mechanism ensures that a variable always holds a well-defined value of its type; in Go there is no such thing as an uninitialized variable. 
+* It is possible to declare and optionally initialize a set of variables in a single declration, witha  matching list of expresssions. Omitting th tytpe allows decration of multiple variables of different types: 
+```
+var i, j, k int                 // int, int, int
+var b, f, s = true, 2.3, "four" // bool, float64, string
+```
+### 2.3.1 Short Variable Declrations 
+* Within a function, an alternate form called a short variable declration may be used to declare and initialize local variables. It takes the form `name := expression`, and the type of name is determined by the type of expression. 
+* As with var declrations, multiple variables may be declared and initialized in the same short variable declaration, 
+`i, j := 0, 1`
+  but declarations with multiple initializer expressions should be used only when they help readability. 

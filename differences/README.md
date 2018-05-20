@@ -20,3 +20,6 @@ for condition {
 
 ### Statements
 * You don't need to have semicoln after each statement unless you are adding multiple statements in the same line. 
+
+### Variables
+* GO does not permit unused local variables.

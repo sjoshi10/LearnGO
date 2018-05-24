@@ -149,3 +149,9 @@ func FToC(f Fahrenheit) Celsius { return Celsius((f- 32)* 5/9) }
 * For every type T, there is a corresponding conversion operation T(x) that converts the value x to type T. 
 * A conversion from one type to another is allowed if both have the same underlying type, or if both are unnamed pointer types that point to variables of the same underlying type, these conversions change the type but not the representation of the value. 
 
+### 2.6.2 Package initialization 
+
+* Variables in the package can be initialized through the init() function. 
+* Such init() function can't be called or referenced. Whithin each file, init functions are automatically executed when the program starts , in order in which they are declared. 
+* One package is initialized at a time, in the order of imports in the program, dependencies first, so a package p importing q can be sure that q is fully initialized before p's initialization begin. 
+

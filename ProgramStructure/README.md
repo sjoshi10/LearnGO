@@ -88,7 +88,29 @@ p := new(int) // p = 0
 * The new function is relatively rarely used because the most common unnamed variables are of struct types, for which struct literal syntax is more flexibe. 
 
 ##### 2.3.4 Lifetime of Variables 
-* The lifetime of a variable is the interval of time during which it exists as the program executes. The liftime of a package-level variable is the entire execution of the program. 
+* The lifetime of a variable is the interval of time during which it exists as the program executes. The liftime of a package-level variable is the entire execution of the program. By contrast, local variables have dynamic lifetimes: a new instance is created each time the declration  statement is executed, and the variable lives on until it becomes unreachable, at which point its storage may be recycled. 
 
+* Because the lifetime of a variable is determinted only by whether or not it is reachable, a local variable may outlive a single iteration of the enclosing loop. 
 
+```
+var global *int
 
+func f() {
+   var x int 
+   x =1 
+   global = &x
+
+}
+```
+Here, x must be heap-allocated because it is still reachable from the variable global after f has returned, despite being declared as a local variable; we say x escapes from f. 
+
+* You don't need to explicitly allocate and free memory, but to write efficient programs you still need to be aware of the lifetime of variables. 
+
+### Tuple Assignment 
+* Another form of assignment, known as tuple assignment, allows several variables to be assigned at once. 
+
+    ##### Swapping Values
+    x, y = y, x
+    a[i], a[j]= a[j], a[i]
+    
+* 

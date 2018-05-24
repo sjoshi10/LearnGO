@@ -106,7 +106,7 @@ Here, x must be heap-allocated because it is still reachable from the variable g
 
 * You don't need to explicitly allocate and free memory, but to write efficient programs you still need to be aware of the lifetime of variables. 
 
-### Tuple Assignment 
+### 2.4 Tuple Assignment 
 * Another form of assignment, known as tuple assignment, allows several variables to be assigned at once. 
 
     ##### Swapping Values
@@ -115,4 +115,37 @@ Here, x must be heap-allocated because it is still reachable from the variable g
     a[i], a[j]= a[j], a[i]
     ```
     
-* 
+* As with variable declarations, we can assign unwanted values to the blank identifier:
+```
+_, err = io.Copy(dst, src) // discard byte count
+_, ok = x.(T)              // check type but discard result. 
+```
+
+### 2.5 Type Declarations 
+* A "type" declarations most often appear at package level, where the named type is visible through-out the package, and if the name is exported (it starts with an upper-case letter), it's accessible from other packages as well.
+
+```
+package tempconv
+
+import "fmt"
+
+type Celsius float64
+type Fahrenheit float64
+
+
+const (
+    AbsoluteZeroC Celcius = -273.15
+    FreezingC     Celcius = 0
+    BoilingC      Celcius = 100
+
+)
+
+func CToF(c Celsius) Fahrenheit { return Fahrenheit(c*9/5 +32)}
+func FToC(f Fahrenheit) Celsius { return Celsius((f- 32)* 5/9) }
+
+```
+* This package defines two types, Celsius and Fahrenheit, for the two units of temperature. Even though both have the same underlying type, float64, they are not the same type, so they cannot be compared or combined in arithmetic expressions. 
+* Distinguishin the types makes it possible to avoid errors like inadvertently combining temperatures in the two different scales. 
+* For every type T, there is a corresponding conversion operation T(x) that converts the value x to type T. 
+* A conversion from one type to another is allowed if both have the same underlying type, or if both are unnamed pointer types that point to variables of the same underlying type, these conversions change the type but not the representation of the value. 
+

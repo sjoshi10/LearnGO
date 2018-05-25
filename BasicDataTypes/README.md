@@ -40,3 +40,30 @@ fmt.Println(s[:])          // "hello, world"
 
 * A raw string literal is written using backquotes instead of double quotes. Within raw string literal, no escape sequences are processed. 
 * Raw string literals are a convenient way to write regular expressions. 
+
+### 3.5.4 Strings and Byte Slices
+* Four standard packages are particularly important for manipulating strings: bytes, strings, strconv, and unicode. 
+* strings package provides many functions for searching, replacing, comparing, trimming, splitting, and joining strings. 
+* The bytes package has functions for manipulating slices of bytes, of type []byte, which share some properties with strings. 
+* strconv package provides functions for converting boolean, integer, and floating-point values to and from their string representations, and functions for quoting and unquoting strings. 
+* The unicode package provides functions like IsDigit, IsLetter, IsUpper, and IsLower for classifying runes. 
+
+```
+package main
+
+import (
+ "strings"
+ "fmt"
+)
+func main(){
+ name := "Saurab"
+ index := strings.LastIndex(name,"a")
+ fmt.Println(index)                    // 4
+ fmt.Println(name[:index])             //saur
+ index = strings.Index(name, "a")
+ fmt.Println(index)                    // 1
+ fmt.Println(name[:index])             //s
+
+}
+```
+string.LastIndex(s, "f")

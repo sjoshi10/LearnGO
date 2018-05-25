@@ -28,3 +28,15 @@ The size of an array is part of its type, so [3]int and [4]int are different typ
 q := [3]int{1, 2, 3}
 q = [4]int{1, 2, 3, 4} // compile error: cannot assign [4]int to [3]int
 ```
+
+* If an array's element type is comparable then the array type is comparable too, so we may directly compare two arrays of tha ttype using the == operator, which reports whether all corresponding elments are equal. 
+
+```
+a := [2]int{1, 2}
+b := [...]int{1,2}
+c := [2]int(1,3)
+
+fmt.Println(a == b, a == c, b ==c) // true false false
+d := [3]int{1,2}
+fmt.Println(a == d) // compile error: connot compare [2]int == [3]int
+

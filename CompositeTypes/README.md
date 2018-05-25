@@ -12,8 +12,15 @@ fmt.Println(a[0])        // print the first element
 fmt.Println(a[len(a)-1]) // print the last element, a [2]
 
 // Print the indices and elements
-for i, v := range a{
-  fmt.Printf"%d %d\n",i,v)
-}
+var a [3]int = [3]int{22,11,33}
 
+for _,v := range a {
+
+ fmt.Println(v)
+}
+// 22
+// 11
+// 33
 ```
+
+The size of an array is part of its type, so [3]int and [4]int are different types. 

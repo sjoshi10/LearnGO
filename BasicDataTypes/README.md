@@ -66,4 +66,17 @@ func main(){
 
 }
 ```
-string.LastIndex(s, "f")
+
+* A string contains an array of bytes that, once created, is immutable. By contrast, the elements of a byte slice can be freely modified. 
+
+Strings can be converted to byte slices and back again:
+s := "abc"
+b := []byte(s)
+s2 := string(b)
+
+####### List of functions for strings package: https://golang.org/pkg/strings/ 
+
+### 3.6 Constants 
+* Constants are expressions whose values is known to the compiler and whose evaluation is guaranteed to cocur at compile time, not at run time. The underlying type of every constant is a basic type: boolean, string, or number. 
+
+* Many computations on constants can be completely evaluated at compile time, reductin the work necessary at run time and enabling other compiler optimiations. 

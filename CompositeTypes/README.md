@@ -24,3 +24,7 @@ for _,v := range a {
 ```
 
 The size of an array is part of its type, so [3]int and [4]int are different types. 
+```
+q := [3]int{1, 2, 3}
+q = [4]int{1, 2, 3, 4} // compile error: cannot assign [4]int to [3]int
+```

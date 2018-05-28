@@ -60,3 +60,28 @@ func equal(x, y []string) bool{
   return true
 }
 ```
+
+* Append to slices
+```
+package main 
+
+import "fmt"
+
+func main(){
+
+num := []int{1,2,3,4}
+
+for x := range num{
+  fmt.Println(num[x])// 1 2 3 4 
+}
+
+num = append(num,5)
+
+for x := range num{
+
+  fmt.Println(num[x])// 1 2 3 4 5
+}
+
+
+}
+```

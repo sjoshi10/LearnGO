@@ -39,4 +39,24 @@ c := [2]int(1,3)
 fmt.Println(a == b, a == c, b ==c) // true false false
 d := [3]int{1,2}
 fmt.Println(a == d) // compile error: connot compare [2]int == [3]int
+```
 
+### 4.2 Slices
+* A slice literal looks like an array literal, a sequnce of values separated by commas and surrounded by braces, but size is not given. This implicitly creates an array variables of the right size and yields a slice that points to it. 
+`s := []int{0, 1, 2, 3, 4, 5}`
+
+* Unlike arrays, slices are not comparable, so we cannot use == to test whether two slices contains the same elements. We can create our own function to compare: 
+```
+func equal(x, y []string) bool{
+  if len(x) != len(y){
+      return false
+  }
+  for i := range x {
+    if x[i] != y[i]{
+       return false
+    }
+  
+  }
+  return true
+}
+```

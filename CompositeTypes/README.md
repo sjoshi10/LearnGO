@@ -85,3 +85,69 @@ for x := range num{
 
 }
 ```
+
+### 4.3 Maps
+
+The hash table is one of the mose ingenious and versatile of all data structures. It is an unordered collection of key/value pairs in which all the keys are distinct, and the value associated with a given key can be retreived, updated, or removed using a constant number of key comparisons on the average, no matter how large the hash table. 
+
+
+* In Go, a map is a reference to a hash table, and a map type is writtent map[K]V, where K and V are the types of it's keys and values. All of the keys in a given map are of the same type, and all of the values are of the same type, but the keys need not be of the same type as the values. 
+
+* The built-in function make can be used to create a map:
+  `ages := make(map[string]int)` // mapping from strings to ints
+  
+We can also use a map literal to create a new map populated with some initial key/value pairs
+
+```
+package main
+
+import "fmt"
+
+func main(){
+
+ages := make(map[string]int)
+
+ages["saurab"]=27
+ages["shashank"]=24
+
+fmt.Println(ages["saurab"])    //27
+fmt.Println(ages["shashank"])  //24
+
+//delete Key value pair
+delete(ages,"saurab")
+
+ages["shristi"]=29
+ages["anjela"]=31
+ages["sudeep"]=33
+ages["saurav"]=33
+ages["rayna"]=18
+
+
+//This for loop will go through maps
+for name, age := range ages{
+
+  fmt.Printf("%s is %d years old.\n", name, age) 
+
+
+}
+
+
+// You can use this to see if the element is in map
+age, ok := ages["dibyesh"]
+
+if !ok{
+  fmt.Println(age) // 0 
+  fmt.Println(ok)  // false
+  fmt.Println("element does not exist.")
+
+}
+
+age, ok = ages["rayna"]
+
+fmt.Println(age) // 18
+fmt.Println(ok)  // true
+
+
+
+}
+```

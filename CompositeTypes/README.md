@@ -177,3 +177,13 @@ position := &dilbert.Position
 var favoriteEmployee *Employee= &dilbert //use pointer to struct
 favoritEmployee.Salary += 5000  
 ```
+
+* A named struct type S can't declare a field of the same type S: an aggregate value cannot contain itself. But S may declare a field of the pointer type \*S, which lets us create recursive data structures like linked lists and trees. 
+```
+type tree struct{
+  value       int
+  right, left *tree
+}
+```
+
+* The zero value for a struct is composed of the zero values of each of its fields. 

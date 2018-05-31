@@ -188,3 +188,14 @@ type tree struct{
 
 * The zero value for a struct is composed of the zero values of each of its fields. 
 * The struct type with no fields is called the empty struct, written struct{}. It has size zero and carries no information but may be useful nonetheless. 
+
+
+###### 4.4.1 Struct Literals
+
+A value of a struct type can be written using a struct literal that specifies values for its fields, 
+
+```
+type Point struct{ X, Y int}
+
+p:= Point{1, 2}
+```

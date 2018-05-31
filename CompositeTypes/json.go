@@ -12,6 +12,9 @@ type Employee struct{
   Age      int `json:"age"`
   Skills   []string `json:"skills,omitempty"`
 }
+type Names struct{
+  Name string 
+}
 
 
 func main(){
@@ -76,3 +79,13 @@ fmt.Printf("%s \n",data)
    }
 ] 
 */
+ 
+var names []Names
+
+if err := json.Unmarshal(data, &names); err != nil {
+  log.Fatalf("JSON unmarshaling failed: %s", err)
+}
+fmt.Println(names) //[{Saurab Joshi} {Tom Brady} {Brian Dawkins}]
+
+}
+ 

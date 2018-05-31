@@ -172,8 +172,8 @@ var dilbert Employee    // instance of an employee
 dilbert.Salary = 10000  // accessed using dot notation
 
 position := &dilbert.Position
-\*postion = "Senior Devloper" // use pointer to change value. 
+*postion = "Senior Devloper" // use pointer to change value. 
 
-var favoriteEmployee \*Employee= &dilbert //use pointer to struct
+var favoriteEmployee *Employee= &dilbert //use pointer to struct
 favoritEmployee.Salary += 5000  
 ```

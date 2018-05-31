@@ -187,3 +187,4 @@ type tree struct{
 ```
 
 * The zero value for a struct is composed of the zero values of each of its fields. 
+* The struct type with no fields is called the empty struct, written struct{}. It has size zero and carries no information but may be useful nonetheless. 

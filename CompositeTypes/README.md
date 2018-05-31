@@ -192,10 +192,11 @@ type tree struct{
 
 ###### 4.4.1 Struct Literals
 
-A value of a struct type can be written using a struct literal that specifies values for its fields, 
+A value of a struct type can be written using a struct literal that specifies values for its fields. There are two ways to use struct literals: 
 
 ```
 type Point struct{ X, Y int}
 
-p:= Point{1, 2}
+p:= Point{1, 2}        // first way
+q:= Point{X: 1, Y: 2}  // second way
 ```

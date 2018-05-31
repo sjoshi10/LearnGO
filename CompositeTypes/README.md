@@ -231,3 +231,19 @@ w.Circle.Radius = 5
 w.Spokes = 20
 
 ```
+
+### 4.5 JSON
+JavaScript Object Notation (JSON) is a standard notation for sending and receiving structured information. 
+
+* The basic JSON types are numbers, booleans, and strings. These basic types may be combined recursively using JSON arrays and objects. 
+
+```
+boolean    true 
+number     12
+string     "Hello"
+array      ["gold", "silver", "bronze"]
+object     {"year":2009,
+            "month":"January"
+            "medals":["gold","silver", "bronze"]
+            }
+```

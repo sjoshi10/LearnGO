@@ -200,3 +200,34 @@ type Point struct{ X, Y int}
 p:= Point{1, 2}        // first way
 q:= Point{X: 1, Y: 2}  // second way
 ```
+
+##### 4.4.2 Comparing Structs
+If all fields of a struct are comparable, the struct itself is comparable, so two expressions of that type may be compare using == or !=. 
+
+
+##### 4.4.3 Struct Embedding and Anonymous Fields
+Go's unusual struct embedding mechanism lets us use on name struct type as an anonymous field fo another sturct type, providing a convenient syntactic shourcut so that a smiple dot expression like x.f can stand for a chaing of fields like x.d.e.f. 
+
+```
+type Point struct{
+  X, Y int
+}
+
+type Circle struct {
+  Center Point
+  Radius int
+}
+
+type Wheel Struct{
+  Circle Circle
+  Spokes int
+}
+
+
+var w Wheel
+w.Circle.Center.X =8
+w.Circle.Center.Y =8
+w.Circle.Radius = 5
+w.Spokes = 20
+
+```

@@ -151,3 +151,29 @@ fmt.Println(ok)  // true
 
 }
 ```
+
+* As with slices, maps cannot be compared to each other the only legal comparison is with nil. You can compare each value by looping through the map. 
+
+### 4.4 Structs
+
+A struct is a ggregate data type that groups together zero or more named values of arbitrary types as a single entity. 
+
+type Employee struct{
+   ID        int
+   Name      string
+   Address   string
+   DOB       time.Time
+   Position  string
+   Salary    int
+   ManagerID int
+}
+
+var dilbert Employee    // instance of an employee
+dilbert.Salary = 10000  // accessed using dot notation
+
+position := &dilbert.Position
+\*postion = "Senior Devloper" // use pointer to change value. 
+
+var favoriteEmployee \*Employee= &dilbert //use pointer to struct
+favoritEmployee.Salary += 5000  
+```

@@ -247,3 +247,49 @@ object     {"year":2009,
             "medals":["gold","silver", "bronze"]
             }
 ```
+
+
+EXAMPLE:
+```
+type Movie struct{
+  Title  string
+  Year   int `json:"released"`
+  Color  bool `json:"color,omitemtpy"`
+  Actors []String 
+}
+
+var movies = []Movie{
+   {Title: "Titanic", Year, 1996, Color: false, Actors : []string{"Leo","Kate"}},
+   {Title: "Forest Gump", Year, 1992, Color: true, Actors : []string{"Tom Hanks","Gina"}}
+  }
+  
+data, err := json.Marshal(movies)
+if err!= nil {
+    log.Fatalf("JSON marshaling failed: %s", err)
+}
+fmt.Printf("%s\n",data)
+```
+OUTPUT
+```
+[
+  { 
+    "Title":"Titanic",
+    "released": 1996,
+    "Actors": [
+      "Leo",
+      "Kate"
+    ]
+  },
+  { 
+    "Title":"Forrest Gump",
+    "released": 1992,
+    "color": true,
+    "Actors": [
+      "Tom Hanks",
+      "Gina"
+    ]
+  }
+]
+```
+
+

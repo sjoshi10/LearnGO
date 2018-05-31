@@ -36,6 +36,9 @@ if err != nil{
 fmt.Printf("%s \n",data)
 
 data, err = json.MarshalIndent(employees, "", "   ")
+/*
+[{"name":"Saurab Joshi","salary":100000,"age":27,"skills":["Java","Docker","Linux","Golang","Ruby","Python"]},{"name":"Tom Brady","salary":0,"age":50},{"name":"Brian Dawkins","salary":10000,"age":40,"skills":["Football"]}]
+*/
 
 if err != nil{
 
@@ -43,3 +46,33 @@ if err != nil{
 }
 
 fmt.Printf("%s \n",data)
+/*
+[
+   {
+      "name": "Saurab Joshi",
+      "salary": 100000,
+      "age": 27,
+      "skills": [
+         "Java",
+         "Docker",
+         "Linux",
+         "Golang",
+         "Ruby",
+         "Python"
+      ]
+   },
+   {
+      "name": "Tom Brady",
+      "salary": 0,
+      "age": 50
+   },
+   {
+      "name": "Brian Dawkins",
+      "salary": 10000,
+      "age": 40,
+      "skills": [
+         "Football"
+      ]
+   }
+] 
+*/

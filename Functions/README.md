@@ -41,3 +41,21 @@ func example(url string)([]string, error){
 ```
 * The first error is returned unchanged. 
 * The second error is augmented with additional context information by fmt.Errorf. 
+
+### 5.4 Errors
+Errors are an important part of a package's API or an application's user interface, and failure is just one of several expected behaviors. 
+
+* A function for which failure is an expected behavior returns an additional result, conventionally the last one. If the failure has only one possible cause, the resutl is a boolean, usually called ok. 
+
+```
+value, ok := cache.Lookup(key)
+if !ok {
+        // cache[key] does not exist. 
+}
+```
+
+* The built-in type error is an interface type. Error ma be nil or non-nil, that nil implies success and non-nil implies failure, and that a non-nil error has an error message string we can obtain by calling it's Error method or print by calling `fmt.Println(err)` or `fmt.Printf("%v", err)`
+
+
+* go's approach sets it apart from mamy other languages in which failures are reported using exceptions, non ordinary values. Although Go does have an exception mechanism of sorts, it is used only for reporting truly unexpected errors that indicate a bug, not the routine errors that a robust program should be built to expect. 
+

@@ -20,3 +20,24 @@ func zero(int, int) int {return 0}
 
 ### 5.2 Recursion
 Functions may be recursive, that is they may call themselves, either directly or indirectly. 
+
+### 5.3 Multiple Return Values
+* A function can return more than one result. We have seen many examples of functions from standard packages that return two values, the desired computational result and an error value or boolean that indicates whether the computation worked. 
+
+```
+func example(url string)([]string, error){
+    resp, err := http.Get(url)
+    if err!= nil{
+        return nil, err
+    }
+    
+    if resp.StatusCode != http.StatusOK{
+        resp.Body.Close()
+        return nil, fmt.ErrorF("getting %s: %s",url, resp.Status) 
+    
+    }
+
+}
+```
+* The first error is returned unchanged. 
+* The second error is augmented with additional context information by fmt.Errorf. 
